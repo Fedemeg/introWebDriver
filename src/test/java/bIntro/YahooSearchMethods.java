@@ -19,11 +19,11 @@ public class YahooSearchMethods {
 
 		searchYahoo("Selenium");
 		
-		clickLink("Selenium");
-
+		clickLink("/html/body/div[1]/div[3]/div/div/div[1]/div/div/div/div/ol/li[1]/div/div[1]/h3/a");
 		selectPopUp();
 
-		clickLink("Download");
+		clickLink("//a[@href='/downloads']");
+
 		
 		closeBrowser();
 
@@ -40,7 +40,7 @@ public class YahooSearchMethods {
 	}
 
 	private static void clickLink(String linkText) {
-		WebElement link = driver.findElement(By.linkText(linkText));
+		WebElement link = driver.findElement(By.xpath(linkText));
 		link.click();
 		
 	}
