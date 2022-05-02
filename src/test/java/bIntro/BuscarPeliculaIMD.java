@@ -26,8 +26,6 @@ public class BuscarPeliculaIMD {
 
 }
 
-	
-
 	private static void navegarUrl(String navegador, String url) {
 		
 		switch(navegador) {
@@ -50,7 +48,7 @@ public class BuscarPeliculaIMD {
 		driver.get(url);
 	}
 
-	private static void verificarPaginaHome() { //asigne las variable con sus valores, ahora faltaria verificar que est�n presentes.
+	private static void verificarPaginaHome() { //asigne las variable con sus valores, ahora faltaria verificar que estén presentes.
 		//verifar logo IMDB  //a[@id = 'home_img_holder']
 		WebElement logoIMDB = driver.findElement(By.xpath("//a[@id = 'home_img_holder']"));
 		//verificar campo busqueda //input[@name = 'q']
@@ -91,3 +89,43 @@ public class BuscarPeliculaIMD {
 		
 	}
 }
+
+
+
+/* FALTARIA PONER LOS ASSERT 
+Es necesario importar la librería de Testng de los Asserts a la clase donde estoy realizando los tests:
+
+import org.testng.Assert;
+
+
+Existen varios tipos de validaciones que se pueden realizar:
+
+
+
+💡 Assert.assertEquals (valor_obtenido, valor_esperado)
+
+Para comparar si ambos valores son iguales, en caso de que no lo sea, el Test fallará!
+
+Assert.assertEquals(valorObtenido, 3);
+
+
+💡 Assert.assertNotEquals (valor_obtenido, valor_esperado)
+
+Para comparar si ambos valores son distintos, en caso de que sean iguales, el Test fallará!
+
+Assert.assertNotEquals(valorObtenido, 3);
+
+
+💡 Assert.assertTrue (condición)
+
+Para validar que la condición sea verdadera, de lo contrario, el Test fallará
+
+Assert.assertTrue(encontreElemento);
+
+
+💡 Assert.assertFalse (condición)
+
+Para validar que la condición sea falsa, de lo contrario, el Test fallará
+
+Assert.assertFalse(hayError);
+*/
