@@ -1,4 +1,5 @@
-package eClassExercise;
+package test.java.eClassExercise;
+
 
 import java.util.concurrent.TimeUnit;
 

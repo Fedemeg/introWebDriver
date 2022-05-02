@@ -1,4 +1,4 @@
-package bIntro;
+package test.java.bIntro;
 
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
@@ -12,14 +12,15 @@ public class YahooSearchMain {
 	
 	
 
+	
 	public static void main(String[] args) {
 		//INICIALIZACION DE SYSTEM.SETPROPERTY()
 	    WebDriver driver;
 		driver = new ChromeDriver();  //arranca el navegador, obvio Chrome
-		driver.manage().timeouts().implicitlyWait(30,  TimeUnit.SECONDS); //configura las esperas implicitas hasta 30 segundos
+		driver.manage().timeouts().implicitlyWait(5,  TimeUnit.SECONDS); //configura las esperas implicitas hasta 5 segundos
 		driver.get("http://www.yahoo.com"); //navega a la url que le indiquemos
-		WebElement searchBox = driver.findElement(By.id("header-search-input"));
-		WebElement searchButton = driver.findElement(By.id("header-desktop-search-button"));
+		WebElement searchBox = driver.findElement(By.id("header-search-input"));//busca un campo de busqueda usando el ID
+		WebElement searchButton = driver.findElement(By.id("header-desktop-search-button"));//busca el boton de busqueda por el ID
 		
 		searchBox.clear();
 		searchBox.sendKeys("Selenium");

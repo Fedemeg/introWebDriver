@@ -1,4 +1,4 @@
-package fBatchRun;
+package test.java.fBatchRun;
 
 public class TestLogin extends TestCase {
 

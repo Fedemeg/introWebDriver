@@ -1,4 +1,4 @@
-package fBatchRun;
+package test.java.fBatchRun;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;

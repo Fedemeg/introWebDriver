@@ -1,4 +1,4 @@
-package fBatchRun;
+package test.java.fBatchRun;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;

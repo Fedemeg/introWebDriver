@@ -1,4 +1,4 @@
-package fBatchRun;
+package test.java.fBatchRun;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
