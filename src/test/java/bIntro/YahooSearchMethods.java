@@ -19,7 +19,7 @@ public class YahooSearchMethods {
 
 		searchYahoo("Selenium");
 		
-		clickLink("Selenium - Web Browser Automation");
+		clickLink("Selenium");
 
 		selectPopUp();
 
@@ -45,10 +45,10 @@ public class YahooSearchMethods {
 		
 	}
 
-	private static void searchYahoo(String topic) {
+	private static void searchYahoo(String topic) {//metodo para buscar elementos
 		//busqueda
-		WebElement searchBox = driver.findElement(By.id("uh-search-box"));
-		WebElement searchButton = driver.findElement(By.id("uh-search-button"));
+		WebElement searchBox = driver.findElement(By.id("ybar-sbq"));
+		WebElement searchButton = driver.findElement(By.id("ybar-search"));
 
 		searchBox.clear();
 		searchBox.sendKeys(topic);
@@ -57,7 +57,7 @@ public class YahooSearchMethods {
 
 	}
 
-	private static void setUp(String browser, String url) {
+	private static void setUp(String browser, String url) {//metodo para abrir el navegador
 		switch(browser) {
 		case "chrome":
 			//System.setProperty("webdriver.chrome.driver", "/usr/jnavarro/test");
@@ -79,7 +79,7 @@ public class YahooSearchMethods {
 
 	}
 	
-	private static void closeBrowser() {
+	private static void closeBrowser() {//metodo para cerrar
 		driver.close();
 	}
 

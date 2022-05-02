@@ -40,6 +40,7 @@ public class YahooSearchMain {
 		downloadLink.click();//le da click
 		
 		driver.quit();//cierra la ventana
+		driver.quit();
 
 	}
 
