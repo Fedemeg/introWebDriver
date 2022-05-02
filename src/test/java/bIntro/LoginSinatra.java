@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
-public class LoginSinatra {
+public class LoginSinatra { //creamos la clase
 
 	static WebDriver driver;
 	
@@ -26,7 +26,7 @@ public class LoginSinatra {
 
 	}
 
-	private static void abrirPagina(String navegador, String url) {
+	private static void abrirPagina(String navegador, String url) { //creo metodo de abrirPagina
 		switch(navegador) {
 		case "chrome":
 			//System.setProperty("webdriver.chrome.driver", "/usr/jnavarro/test");
@@ -47,13 +47,13 @@ public class LoginSinatra {
 		driver.get(url);
 	}
 	
-	private static void clickearLogin() {
+	private static void clickearLogin() { //creo metodo para buscar y clickear el boton Log In
 		WebElement loginlink = driver.findElement(By.xpath("//a[@href ='/login']"));
 		loginlink.click();
 		
 	}
 	
-	private static void login(String usuario, String contrasena) {
+	private static void login(String usuario, String contrasena) { //creo metodo para buscar , limpiar y completar los campos de usuario y pass, y hacer clic en el boton de logueo
 		WebElement userField = driver.findElement(By.xpath("//input[@id ='username']"));
 		WebElement passField = driver.findElement(By.xpath("//input[@id ='password']"));
 		WebElement loginButton = driver.findElement(By.xpath("//input[@value ='Log In']"));
@@ -70,7 +70,7 @@ public class LoginSinatra {
 		
 		
 	}
-	private static void validacionLogin() {
+	private static void validacionLogin() { //creo el metodo para verificar que el logueo fue exitoso
 		String textoEsperado = "You are now logged in as frank";
 		WebElement textoLogueo = driver.findElement(By.xpath ("//div[@class ='flash notice']"));
 		String textoMostrado = textoLogueo.getText(); 
@@ -82,7 +82,7 @@ public class LoginSinatra {
 		}
 	}
 
-	private static void cerrarNavegador() {
+	private static void cerrarNavegador() { //creo el metodo para cerrar la pagina y el navegador
 		driver.close();
 		driver.quit();
 		
