@@ -50,14 +50,34 @@ public class BuscarPeliculaIMD {
 
 	private static void verificarPaginaHome() { //asigne las variable con sus valores, ahora faltaria verificar que estén presentes.
 		//verifar logo IMDB  //a[@id = 'home_img_holder']
-		WebElement logoIMDB = driver.findElement(By.xpath("//a[@id = 'home_img_holder']"));
+		WebElement logoIMDB = driver.findElement(By.id("home_img_holder"));
 		//verificar campo busqueda //input[@name = 'q']
 		WebElement campoBusqueda = driver.findElement(By.xpath("//input[@name = 'q']"));
 		//verifcar boton LUPA //button[@id = 'suggestion-search-button'] 
 		WebElement botonLupa = driver.findElement(By.xpath("//button[@id = 'suggestion-search-button']"));
 		
+		if (logoIMDB.isDisplayed()) {
+		System.out.println("El logo IMDB esta visible");
+		}
+		else {
+			System.out.println("El logo IMDB no esta visible");
+		}
+			
+		if (campoBusqueda.isDisplayed()) {
+			System.out.println("El campo de busqueda esta visible");
+		}
+		else {
+			System.out.println("El campo de busqueda no esta visible");
+		}
+		if (botonLupa.isDisplayed()) {
+			System.out.println("El boton lupa esta visible");
+			}
+			else {
+				System.out.println("El boton lupa no esta visible");
+			}
+		}	
 		
-	}
+	
 
 	private static void ingresarPelicula(String nombrePelicula) {
 		// Metodo para realizar la busqueda
@@ -65,7 +85,12 @@ public class BuscarPeliculaIMD {
 		campoBusqueda.clear();//limpio el campo busqueda
 		campoBusqueda.sendKeys(nombrePelicula);//ingreso el valor "It" en el cmapoBusqueda
 		WebElement menuOpcional = driver.findElement(By.xpath("//div[contains(@class, 'imdb-header__search-menu')]"));//verifico que se despliega un menu al buscar //div[contains]@class, 'imdb-header__search-menu']
-		
+		if (menuOpcional.isDisplayed()) {
+			System.out.println("El menu opcional esta visible");
+			}
+			else {
+				System.out.println("El menu opcional no esta visible");
+			}
 		
 	}
 
@@ -79,7 +104,18 @@ public class BuscarPeliculaIMD {
 	private static void verificarBusqueda(String nombrePelicula) {
 		WebElement fraseResults = driver.findElement(By.xpath("//h1[@class='findHeader']"));// verifico que esta  la palabra results
 		WebElement movieLink = driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[2]/table/tbody/tr[1]/td[2]/a"));
-		
+		if (fraseResults.isDisplayed()) {
+			System.out.println("El resultado de la busqueda resulto satisfactorio");
+			}
+			else {
+				System.out.println("El resultado de la busqueda no fue preciso");
+			}
+		if (movieLink.isDisplayed()) {
+			System.out.println("La busqueda de la pelicula " + nombrePelicula + " resulto satisfactoria");
+			}
+			else {
+				System.out.println("La busqueda de la pelicula " + nombrePelicula + " no resulto satisfactoria");
+			}
 		
 	}
 	private static void cerrarNavegador() { //creo el metodo para cerrar la pagina y el navegador
