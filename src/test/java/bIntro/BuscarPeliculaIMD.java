@@ -49,7 +49,7 @@ public class BuscarPeliculaIMD {
 	}
 
 	private static void verificarPaginaHome() { //asigne las variable con sus valores, ahora faltaria verificar que estén presentes.
-		//verifar logo IMDB  //a[@id = 'home_img_holder']
+		//verifar logo IMDB  //a[@id = 'home_img_holder'] este seria el Xpath, pero puedo ponerle directamente el ID.
 		WebElement logoIMDB = driver.findElement(By.id("home_img_holder"));
 		//verificar campo busqueda //input[@name = 'q']
 		WebElement campoBusqueda = driver.findElement(By.xpath("//input[@name = 'q']"));

@@ -13,26 +13,26 @@ import java.util.concurrent.TimeUnit;
  * Created by design on 11/17/17.
  */
 public class ExplicitWaitTest {
-
+	
 	public static void main(String[] args) {
 
 		WebDriver driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);//espera implicita
 
 		driver.get("http://songs-by-sinatra.herokuapp.com");
 
-		WebDriverWait wait = new WebDriverWait(driver, 15);
+		WebDriverWait wait = new WebDriverWait(driver, 15); //espera explicita: necesita el driver/controlador del navegador; el tiempo maximo de espera en segundos
 
 		WebElement loginLink = wait
-								.until(
+								.until( //esperar hasta que cierto elemento sea clickeable
 										ExpectedConditions
-										.presenceOfElementLocated(
-												By.xpath("//a[@href='/login']")
+										.elementToBeClickable(
+												By.xpath("//a[@href='/login']")//este seria el elemento en cuestion 
 										)
 								);
-		loginLink.click();
+		loginLink.click(); //recien luego de que se cumpla la condicion, hacer CLICK
 		WebElement usernameField = wait
-								.until(
+								.until(//esperar hasta que el elemento cuyo ID=username sea visible
 										ExpectedConditions
 										.presenceOfElementLocated(
 												By.id("username")
@@ -40,7 +40,7 @@ public class ExplicitWaitTest {
 								);
 
 		WebElement passwordField = wait
-								.until(
+								.until(//esperar hasta que el elemento cuyo ID=password sea visible
 										ExpectedConditions
 										.presenceOfElementLocated(
 												By.id("password")
@@ -48,29 +48,29 @@ public class ExplicitWaitTest {
 								);
 		//
 		WebElement loginButton = wait
-								.until(
+								.until(//esperar hasta que el elemento cuyo ID=password sea clickeable
 										ExpectedConditions
-										.presenceOfElementLocated(
+										.elementToBeClickable(
 												By.xpath("//input[@value = 'Log In']")
 										)
 								);
 
-		usernameField.sendKeys("frank");
-		passwordField.sendKeys("sinatra");
-		loginButton.click();
+		usernameField.sendKeys("frank");//ingresar frak en el campo usernamefield
+		passwordField.sendKeys("sinatra");//ingresar sinatra en el campo passwordfield
+		loginButton.click();//hacer click em 
 
 		WebElement loggedInMessage = wait
-									.until(
+									.until(//esperar hasta que el cartel de que estoy logueado cuyo id=flash este presente
 										ExpectedConditions
 											.presenceOfElementLocated(
 												By.id("flash")
 											)
 										);
 		
-		if (loggedInMessage.getText().equals("You are now logged in as frank"))
-			System.out.println("Test Passed");
+		if (loggedInMessage.getText().equals("You are now logged in as frank")) //si el mensaje que aparece es igual a ....
+			System.out.println("Test Passed");//... quiere decir que el test pasó...
 		else
-			System.out.println("Test Failed");
+			System.out.println("Test Failed");//... si no, falló
 
 		driver.close();
 	}
